@@ -35,7 +35,7 @@ namespace VolunteerSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser user = await userManager.FindByEmailAsync(loginModel.Email);
+                AppUser user = await userManager.FindByEmailAsync(loginModel.UserName);
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();
