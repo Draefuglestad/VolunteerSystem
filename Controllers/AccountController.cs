@@ -66,35 +66,6 @@ namespace VolunteerSystem.Controllers
         {
             return View();
         }
-        //POST: Account/Create
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(RegisterModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                AppUser user = new AppUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email
-                };
-                IdentityResult result = await userManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    //await signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Login");
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
-            }
-            return View(model);
-        }
         private void AddErrors(IdentityResult result)
         {
             foreach (IdentityError error in result.Errors)
