@@ -7,9 +7,9 @@
 <form asp-action="Login" asp-controller="Account" method="post" autocomplete="off">
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="form-group col-md-5">
-        <label asp-for="Email"></label>
-        <div><span asp-validation-for="Email" class="text-danger"></span></div>
-        <input asp-for="Email" class="form-control" />
+        <label asp-for="UserName"></label>
+        <div><span asp-validation-for="UserName" class="text-danger"></span></div>
+        <input asp-for="UserName" class="form-control" />
     </div>
     <div class="form-group col-md-5">
         <label asp-for="Password"></label>
