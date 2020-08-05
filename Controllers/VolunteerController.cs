@@ -11,7 +11,7 @@ namespace VolunteerSystem.Controllers
     public class VolunteerController : Controller
     {
         private IVolunteerRepository repository;
-        public int PageSize = 4;
+        public int PageSize = 10;
         public VolunteerController(IVolunteerRepository repo) 
         { 
             repository = repo; 
@@ -31,6 +31,6 @@ namespace VolunteerSystem.Controllers
                 }
             }
             );
-        
+
     }
 }

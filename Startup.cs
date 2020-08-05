@@ -50,7 +50,10 @@ namespace VolunteerSystem
                     template: "Volunteers/Page{page}", 
                     defaults: new { Controller = "Volunteer", action = "List" }); 
 
-                routes.MapRoute(name: "default", template: "{controller=Volunteer}/{action=VolunteerList}/{id?}"); });
+                routes.MapRoute(
+                    name: "default", 
+                    template: "{controller=Volunteer}/{action=VolunteerList}/{id?}");
+            });
 
         }
     }
