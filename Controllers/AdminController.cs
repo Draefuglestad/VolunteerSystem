@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using VolunteerSystem.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VolunteerSystem.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private IVolunteerRepository repository;
