@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using VolunteerSystem.Models.ViewModels;
 using VolunteerSystem.Models;
+using System;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace VolunteerSystem.Controllers
 {
@@ -35,6 +37,7 @@ namespace VolunteerSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine("testing");
                 AppUser user = await userManager.FindByEmailAsync(loginModel.UserName);
                 if (user != null)
                 {
@@ -42,12 +45,12 @@ namespace VolunteerSystem.Controllers
                     if ((await signInManager.PasswordSignInAsync(user,
                     loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Volunteer/VolunteerList");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
                     }
                 }
             }
-            ModelState.AddModelError("", "Invalid name or password");
-            return View(loginModel);
+           ModelState.AddModelError("", "Invalid name or password");
+           return View(loginModel);
         }
         [HttpPost]
         public async Task<RedirectResult> Logout(string returnUrl = "/")

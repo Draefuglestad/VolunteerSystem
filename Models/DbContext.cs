@@ -1,4 +1,4 @@
-﻿namespace SportsStore.Models
+﻿namespace VolunteerSystem.Models
 {
     public class DbContext
     {
