@@ -18,7 +18,7 @@ namespace VolunteerSystem.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Admin/Index");
         }
         public ViewResult VolunteerList(int page = 1) 
             => View(new VolunteersListViewModels 
