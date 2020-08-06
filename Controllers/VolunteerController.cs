@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VolunteerSystem.Models;
 using VolunteerSystem.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace VolunteerSystem.Controllers
 {

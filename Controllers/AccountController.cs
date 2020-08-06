@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using VolunteerSystem.Models.ViewModels;
 using VolunteerSystem.Models;
 using System;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace VolunteerSystem.Controllers
 {
@@ -38,7 +37,7 @@ namespace VolunteerSystem.Controllers
             if (ModelState.IsValid)
             {
                 Console.WriteLine("testing");
-                AppUser user = await userManager.FindByEmailAsync(loginModel.UserName);
+                AppUser user = await userManager.FindByNameAsync(loginModel.UserName);
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();
@@ -77,7 +76,11 @@ namespace VolunteerSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                AppUser user = new AppUser { UserName = model.UserName };
+                AppUser user = new AppUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email
+                };
 
                 IdentityResult result = await userManager.CreateAsync(user, model.Password);
 

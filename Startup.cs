@@ -33,11 +33,14 @@ namespace VolunteerSystem
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
                     .AddDefaultTokenProviders();
 
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMemoryCache(); services.AddSession();
+
         }
 
 
@@ -50,6 +53,7 @@ namespace VolunteerSystem
             app.UseStatusCodePages(); 
             app.UseStaticFiles();
             app.UseAuthentication();
+            app.UseSession();
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "pagination", 
