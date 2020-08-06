@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using VolunteerSystem.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace VolunteerSystem
 {
@@ -32,6 +33,10 @@ namespace VolunteerSystem
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
+            services.AddIdentity<AppUser, IdentityRole<Guid>>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
 
@@ -44,6 +49,7 @@ namespace VolunteerSystem
             app.UseDeveloperExceptionPage(); 
             app.UseStatusCodePages(); 
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "pagination", 
