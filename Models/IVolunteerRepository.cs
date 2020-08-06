@@ -9,5 +9,7 @@ namespace VolunteerSystem.Models
     {
         IEnumerable<Volunteer> Volunteers
         {get;}
+
+        void SaveVolunteer(Volunteer volunteer);
     }
 }
