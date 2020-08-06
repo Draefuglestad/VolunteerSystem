@@ -3,13 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+/*danielle will finish the error messages listing 89 - 93*/
 
 namespace VolunteerSystem.Models
 {
     public class Volunteer
     {
         public int VolunteerID { get; set; }
-        public string FirstName { get; set; } 
+        [Required(ErrorMessage = "Please enter a first name")]
+        public string FirstName { get; set; }
+        [Required(ErrorMessage = "Please enter a last name")]
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
