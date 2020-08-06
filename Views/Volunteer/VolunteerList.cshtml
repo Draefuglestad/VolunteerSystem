@@ -1,11 +1,30 @@
 ﻿@model VolunteersListViewModels
-
-@foreach (var p in Model.Volunteers)
-{
-   @Html.Partial("VolunteerSummary", p)
-    
-}
-<div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-default"
-     page-class-selected="btn-primary" class="btn-group float-right">
+<!--Drop Down Menu. As of 8.5.2020 it is just for aesthetic-->
+<div class="container">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Filter by Approval Status
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a class="dropdown-item" href="#!">All</a>
+            <a class="dropdown-item" href="#!">Approved/Pending</a>
+            <a class="dropdown-item" href="#!">Approved</a>
+            <a class="dropdown-item" href="#!">Pending Approval</a>
+            <a class="dropdown-item" href="#!">Disapproved</a>
+            <a class="dropdown-item" href="#!">Inactive</a>
+        </div>
+    </div>
 </div>
+
+<div>
+    <a asp-action="Admin/Index" class="btn btn-primary">Volunteer List</a>
+</div>
+<!--
+     
+    <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-default"
+         page-class-selected="btn-primary" class="btn-group float-right">
+    </div>
+-->
