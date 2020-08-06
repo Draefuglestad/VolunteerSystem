@@ -23,14 +23,27 @@ namespace VolunteerSystem.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveVolunteer(volunteer);
-                TempData["message"] = $"{volunteer.LastName}, {volunteer.FirstName} has been saved"; 
+                TempData["message"] = $"{volunteer.LastName}, {volunteer.FirstName} has been saved";
                 return RedirectToAction("Index");
             }
             else
             {                 // there is something wrong with the data values                
-                return View(volunteer);             
-            }        
-        } 
-           
+                return View(volunteer);
+            }
+        }
+        public ViewResult Create() => View("Edit", new Volunteer());
+
+        [HttpPost]
+        public IActionResult Delete(int volunteerId)
+        {
+            Volunteer deletedVolunteer = repository.DeleteVolunteer(volunteerId);
+            if (deletedVolunteer != null)
+            {
+                TempData["message"] = $"{deletedVolunteer.LastName} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
+
     }
+
 }

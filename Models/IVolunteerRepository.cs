@@ -11,5 +11,7 @@ namespace VolunteerSystem.Models
         {get;}
 
         void SaveVolunteer(Volunteer volunteer);
+
+        Volunteer DeleteVolunteer(int volunteerID);
     }
 }

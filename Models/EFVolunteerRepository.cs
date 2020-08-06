@@ -57,5 +57,17 @@ namespace VolunteerSystem.Models
                 }
             } context.SaveChanges();
         }
+
+        public Volunteer DeleteVolunteer(int volunteerID)
+        {
+            Volunteer dbEntry = context.Volunteers
+            .FirstOrDefault(p => p.VolunteerID == volunteerID);
+            if (dbEntry != null)
+            {
+                context.Volunteers.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     } 
 }
