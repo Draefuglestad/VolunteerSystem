@@ -17,10 +17,7 @@ namespace VolunteerSystem.Controllers
         { 
             repository = repo; 
         }
-        public IActionResult Index()
-        {
-            return RedirectToAction("Admin/Index");
-        }
+        
         public ViewResult VolunteerList(int page = 1) 
             => View(new VolunteersListViewModels 
             { 
