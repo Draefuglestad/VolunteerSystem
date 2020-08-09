@@ -1,27 +1,24 @@
 ﻿@model VolunteersListViewModels
 <!--Drop Down Menu. As of 8.5.2020 it is just for aesthetic-->
+<!--THIS FILE IS WHERE THE MANAGE OPPORTUNIES PAGE WILL BE LINKED-->
 
-<div>
-    <a asp-controller="Admin" asp-action="Index" class="btn btn-primary">Volunteer List</a>
-</div>
-
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle"
-            type="button" id="dropdownMenu1" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-        Filter by Approval Status
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <a class="dropdown-item" href="#!">All</a>
-        <a class="dropdown-item" href="#!">Approved/Pending</a>
-        <a class="dropdown-item" href="#!">Approved</a>
-        <a class="dropdown-item" href="#!">Pending Approval</a>
-        <a class="dropdown-item" href="#!">Disapproved</a>
-        <a class="dropdown-item" href="#!">Inactive</a>
+    <div class="row align-items-center">
+        <div class="col-6">
+            <div class="card card-block">
+                <a asp-controller="Admin" asp-action="Index" button type="button" class="btn btn-info btn-lg">Manage Volunteers</a>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card card-inverse card-danger">
+                <a asp-controller="Admin" asp-action="Index" button type="button" class="btn btn-info btn-lg">Manage Opportunities</a>
+            </div>
+        </div>
     </div>
-</div>
+
+
+
 <!--
-     
+
     <div page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
          page-class="btn" page-class-normal="btn-default"
          page-class-selected="btn-primary" class="btn-group float-right">
