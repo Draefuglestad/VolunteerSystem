@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-/*danielle will finish the error messages listing 89 - 93*/
+
 
 namespace VolunteerSystem.Models
 {
