@@ -35,6 +35,12 @@ namespace VolunteerSystem.Controllers
         }
         public ViewResult Create() => View("Edit", new Volunteer());
 
+
+        public ViewResult ManagePage()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Delete(int volunteerId)
         {

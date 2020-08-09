@@ -44,7 +44,7 @@ namespace VolunteerSystem.Controllers
                     if ((await signInManager.PasswordSignInAsync(user,
                     loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/ManagePage");
                     }
                 }
             }
@@ -68,6 +68,8 @@ namespace VolunteerSystem.Controllers
         {
             return View();
         }
+
+   
 
         [HttpPost]
         [AllowAnonymous]
