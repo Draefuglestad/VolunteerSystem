@@ -52,11 +52,13 @@ namespace VolunteerSystem.Controllers
            return View(loginModel);
         }
         [HttpPost]
+
         public async Task<RedirectResult> Logout(string returnUrl = "/")
         {
             await signInManager.SignOutAsync();
             return Redirect(returnUrl);
         }
+        
         // GET: /<controller>/
         [AllowAnonymous]
         public ViewResult Index()
@@ -89,7 +91,7 @@ namespace VolunteerSystem.Controllers
                 if (result.Succeeded)
                 {                   
                     //await signInManager.SignInAsync(user, isPersistent: false);                    
-                    return RedirectToAction("Admin/Index");               
+                    return RedirectToAction("/Admin/Index");               
                 }                
                 else             
                 {                  

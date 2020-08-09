@@ -18,7 +18,7 @@
 
 
         <div class="navbar-nav">
-           
+
 
             @if (User.Identity.IsAuthenticated)
             {
@@ -28,12 +28,16 @@
                         <br /><span>@User.Identity.Name</span>
                     </a>
                 </form>
+                <a class="nav-item nav-link text-white" href ="/Admin/ManagePage">Home</a>
             }
             else
             {
                 <a class="nav-item nav-link text-white" href="@Url.Action("Login", "Account")" title="log in">
                     Login
                 </a>
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
             }
         </div>
 
@@ -51,16 +55,13 @@
                 <a asp-controller="Admin" asp-action="Index" button type="button" class="btn btn-info btn-lg">Manage Volunteers</a>
                 <a asp-controller="Admin" asp-action="Index" button type="button" class="btn btn-info btn-lg">Manage Opportunities</a>
          
-        </div>
+        </div>-->
 
-        -->
+        
     <p style="text-align:center;">
         <img src="http://laurelsprings.com/wp-content/uploads/2017/04/Volunteer.jpg" alt="Volunteers" width="1000"
              height="600">
     </p>
-    <!--THIS FILE IS WHERE THE MANAGE OPPORTUNIES PAGE WILL BE LINKED-->
-
-
 
 
 </body>
