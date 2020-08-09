@@ -17,10 +17,39 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+
+    <nav class="navbar navbar-inverse bg-info">
+        <a class="navbar-brand text-white" href="#">Volunteer Management System</a>
+
+
+        <div class="navbar-nav">
+
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
+                    <a class="nav-item nav-link text-white" href="javascript: $('#logout').submit()">
+                        Logout
+                        <br /><span>@User.Identity.Name</span>
+                    </a>
+                </form>
+            }
+            else
+            {
+                <a class="nav-item nav-link text-white" href="@Url.Action("Login", "Account")" title="log in">
+                    Login
+                </a>
+            }
+        </div>
+
+
+    </nav>
+
+
     <div class="container">
         <div class="card">
             <div class="card-header"><h4>@ViewBag.Title</h4></div>
-            <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
+ <!--           <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a> -->
             <div class="card-body">
                 @if (TempData["message"] != null)
                 {
@@ -30,6 +59,8 @@
             </div>
         </div>
     </div>
+
+   
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
