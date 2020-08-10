@@ -90,8 +90,8 @@ namespace VolunteerSystem.Controllers
 
                 if (result.Succeeded)
                 {                   
-                    //await signInManager.SignInAsync(user, isPersistent: false);                    
-                    return RedirectToAction("/Admin/Index");               
+                   //ait signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Login");
                 }                
                 else             
                 {                  
