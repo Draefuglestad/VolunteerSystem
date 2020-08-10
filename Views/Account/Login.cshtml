@@ -3,6 +3,7 @@
     ViewBag.Title = "Log In";
     Layout = "_AdminLayout";
 }
+<center>
 <div class="text-danger" asp-validation-summary="All"></div>
 <form asp-action="Login" asp-controller="Account" method="post" autocomplete="off">
     <input type="hidden" asp-for="ReturnUrl" />
@@ -19,3 +20,10 @@
     </div>
     <button class="btn btn-primary" type="submit">Log In</button>
 </form>
+</center>
+
+<p style="text-align:center;">
+    <img src="https://littlestepsnh.com/wp-content/uploads/2015/01/welcome.jpg" alt="Volunteers" width="900"
+         height="350">
+</p>
+
