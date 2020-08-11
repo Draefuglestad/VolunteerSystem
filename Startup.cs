@@ -29,10 +29,12 @@ namespace VolunteerSystem
 
         public void ConfigureServices(IServiceCollection services)
         { //services.AddTransient<IProductRepository, FakeProductRepository>(); 
+            services.AddTransient<IOpportunityRepository, FakeOpportunityRepository>();
 
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
             services.AddTransient<IVolunteerRepository, EFVolunteerRepository>();
+            services.AddTransient<IOpportunityRepository, EFOpportunityRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
                     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -54,6 +56,7 @@ namespace VolunteerSystem
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseSession();
+            app.UseMvcWithDefaultRoute();
             app.UseMvc(routes => {
                 routes.MapRoute(
                     name: "pagination", 
@@ -63,6 +66,15 @@ namespace VolunteerSystem
                 routes.MapRoute(
                     name: "default", 
                     template: "{controller=Volunteer}/{action=VolunteerList}/{id?}");
+
+                routes.MapRoute(
+                name: null,
+                template: "Page{page:int}",
+                defaults: new { controller = "Opportunity", action = "List", page = 1 }
+                );
+
+
+
             });
 
         }

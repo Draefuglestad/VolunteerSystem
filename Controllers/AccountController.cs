@@ -36,7 +36,6 @@ namespace VolunteerSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine("testing");
                 AppUser user = await userManager.FindByNameAsync(loginModel.UserName);
                 if (user != null)
                 {

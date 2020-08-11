@@ -10,6 +10,7 @@ namespace VolunteerSystem.Models
 { public class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid> 
     { 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { } 
-        public DbSet<Volunteer> Volunteers { get; set; } 
+        public DbSet<Volunteer> Volunteers { get; set; }
+        public DbSet<Opportunity> Opportunities { get; set; }
     }
 }
