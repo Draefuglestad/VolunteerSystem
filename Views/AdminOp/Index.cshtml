@@ -34,12 +34,14 @@
     <tr>
         <th class="text-right">Job Title</th>
         <th>Description</th>
-        <th class="text-center">VolunteerCenter</th>
+        <th>Volunteer Center</th>
+        <th class="text-center">Actions</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td class="text-right">@item.JobTitle, @item.Description</td>
+            <td class="text-right">@item.JobTitle</td>
+            <td>@item.Description</td>
             <td>@item.VolunteerCenter</td>
             <td class="text-center">
                 <form asp-action="Delete" method="post">

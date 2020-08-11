@@ -7,7 +7,8 @@ namespace VolunteerSystem.Models
 {
     public interface IOpportunityRepository
     {
-         IEnumerable<Opportunity> Opportunities
-        {get;} 
+         IEnumerable<Opportunity> Opportunities {get;}
+
+        void SaveOpportunity(Opportunity opportunity);
     }
 }

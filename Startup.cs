@@ -29,7 +29,7 @@ namespace VolunteerSystem
 
         public void ConfigureServices(IServiceCollection services)
         { //services.AddTransient<IProductRepository, FakeProductRepository>(); 
-            services.AddTransient<IOpportunityRepository, FakeOpportunityRepository>();
+         //   services.AddTransient<IOpportunityRepository, FakeOpportunityRepository>();
 
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
