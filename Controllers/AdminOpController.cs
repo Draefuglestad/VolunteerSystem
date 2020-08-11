@@ -14,6 +14,6 @@ namespace VolunteerSystem.Controllers
         {
             repository = repo;
         }
-        public ViewResult IndexOp() => View(repository.Opportunities);
+        public ViewResult Index() => View(repository.Opportunities);
     }
 }

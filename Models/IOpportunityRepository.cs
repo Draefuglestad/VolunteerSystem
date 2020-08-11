@@ -8,6 +8,6 @@ namespace VolunteerSystem.Models
     public interface IOpportunityRepository
     {
          IEnumerable<Opportunity> Opportunities
-        { get; } 
+        {get;} 
     }
 }
