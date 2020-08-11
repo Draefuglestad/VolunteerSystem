@@ -33,5 +33,17 @@ namespace VolunteerSystem.Models
             }
             context.SaveChanges();
         }
+
+        public Opportunity DeleteOpportunity(int opportunityID)
+        {
+            Opportunity dbEntry = context.Opportunities
+            .FirstOrDefault(p => p.OpportunityID == opportunityID);
+            if (dbEntry != null)
+            {
+                context.Opportunities.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
 }

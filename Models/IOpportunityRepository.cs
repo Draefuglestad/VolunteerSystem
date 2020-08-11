@@ -10,5 +10,7 @@ namespace VolunteerSystem.Models
          IEnumerable<Opportunity> Opportunities {get;}
 
         void SaveOpportunity(Opportunity opportunity);
+
+        Opportunity DeleteOpportunity(int opportunityID);
     }
 }

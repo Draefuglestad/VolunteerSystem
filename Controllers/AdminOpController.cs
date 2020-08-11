@@ -32,5 +32,18 @@ namespace VolunteerSystem.Controllers
                 return View(opportunity);
             }
         }
+
+        public ViewResult Create() => View("Edit", new Opportunity());
+
+        [HttpPost]
+        public IActionResult Delete(int opportunityId)
+        {
+            Opportunity deletedOpportunity = repository.DeleteOpportunity(opportunityId);
+            if (deletedOpportunity != null)
+            {
+                TempData["message"] = $"{deletedOpportunity.VolunteerCenter} {deletedOpportunity.JobTitle} was deleted";
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
