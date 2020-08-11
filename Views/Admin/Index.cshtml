@@ -5,29 +5,39 @@
 }
 
 <!--Second test of dropdown menu-->
-  
 
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle"
-                type="button" id="dropdownMenu1" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            Filter by Approval Status
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-            <a class="dropdown-item" href="#!">All</a>
-            <a class="dropdown-item" href="#!">Approved/Pending</a>
-            <a class="dropdown-item" href="#!">Approved</a>
-            <a class="dropdown-item" href="#!">Pending Approval</a>
-            <a class="dropdown-item" href="#!">Disapproved</a>
-            <a class="dropdown-item" href="#!">Inactive</a>
-        </div>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle"
+            type="button" id="dropdownMenu1" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        Filter by Approval Status
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <a class="dropdown-item" href="#!">All</a>
+        <a class="dropdown-item" href="#!">Approved/Pending</a>
+        <a class="dropdown-item" href="#!">Approved</a>
+        <a class="dropdown-item" href="#!">Pending Approval</a>
+        <a class="dropdown-item" href="#!">Disapproved</a>
+        <a class="dropdown-item" href="#!">Inactive</a>
     </div>
+</div>
 <br />
 <br />
 <br />
 <br />
 <br />
 <br />
+
+@*This creates the search bar on the Manage Volunteers page*@
+@using (Html.BeginForm())
+{
+    <p style=" text-align:center;">
+        @*aligns the search bar to the ccenter of the page*@
+        Find by name: @Html.TextBox("SearchString") @*Creates the search text box*@
+        <input type="submit" value="Search" /> @*creates the search button*@
+    </p>
+}@*end search bar code*@
 
 <!--Table-->
 <table class="table table-striped table-bordered table-condensed">

@@ -16,7 +16,6 @@ namespace VolunteerSystem.Controllers
         }
         public ViewResult Index() => View(repository.Volunteers);
 
-
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
                 .FirstOrDefault(p => p.VolunteerID == volunteerID));
 
