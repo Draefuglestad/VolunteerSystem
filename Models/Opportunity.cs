@@ -11,8 +11,13 @@ namespace VolunteerSystem.Models
     public class Opportunity
     {
         public int OpportunityID { get; set; }
-        public string VolunteerCenter { get; set; } 
+        [Required(ErrorMessage = "Please enter a Volunteer Center")]
+        public string VolunteerCenter { get; set; }
+
+        [Required(ErrorMessage = "Please enter a description")]
         public string Description { get; set; }
+        [Required(ErrorMessage = "Please enter a job title")]
         public string JobTitle { get; set; }
+       
     }
 }

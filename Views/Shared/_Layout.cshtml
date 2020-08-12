@@ -25,10 +25,11 @@
                 <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
                     <a class="nav-item nav-link text-white" href="javascript: $('#logout').submit()">
                         Logout
-                        <br /><span>@User.Identity.Name</span>
+                        <span>@User.Identity.Name</span>
                     </a>
                 </form>
                 <a class="nav-item nav-link text-white" href="/Admin/ManagePage">Home</a>
+
             }
             else
             {
