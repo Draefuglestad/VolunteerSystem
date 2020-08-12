@@ -23,7 +23,7 @@ namespace VolunteerSystem.Controllers
             if (ModelState.IsValid)
             {
                 repository.SaveOpportunity(opportunity);
-                TempData["message"] = $"{opportunity.VolunteerCenter} has been saved";
+                TempData["message"] = $"{opportunity.JobTitle} at {opportunity.VolunteerCenter} has been saved";
                 return RedirectToAction("Index");
             }
             else
@@ -41,7 +41,7 @@ namespace VolunteerSystem.Controllers
             Opportunity deletedOpportunity = repository.DeleteOpportunity(opportunityId);
             if (deletedOpportunity != null)
             {
-                TempData["message"] = $"{deletedOpportunity.VolunteerCenter} {deletedOpportunity.JobTitle} was deleted";
+                TempData["message"] = $"{deletedOpportunity.JobTitle} at {deletedOpportunity.VolunteerCenter} has been deleted";
             }
             return RedirectToAction("Index");
         }
