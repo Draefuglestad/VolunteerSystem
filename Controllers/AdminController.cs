@@ -22,7 +22,8 @@ namespace VolunteerSystem.Controllers
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
             {
-                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.Contains(searchString) || Volunteers.FirstName.ToUpper().Contains(searchString) || Volunteers.FirstName.ToLower().Contains(searchString) || Volunteers.LastName.Contains(searchString) || Volunteers.LastName.ToLower().Contains(searchString) || Volunteers.LastName.ToUpper().Contains(searchString)); //handles user input exceptions
+                //handles user input exceptions
+                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.ToLower().Contains(searchString.ToLower()) || Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
             }
             return View(Volunteers.ToList()); //returns the view with a list of volunteers
         }
