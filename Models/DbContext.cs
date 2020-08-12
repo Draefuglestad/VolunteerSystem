@@ -1,4 +1,6 @@
-﻿namespace VolunteerSystem.Models
+﻿using System.Buffers.Text;
+
+namespace VolunteerSystem.Models
 {
     public class DbContext
     {

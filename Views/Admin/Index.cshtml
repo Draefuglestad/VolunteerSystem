@@ -28,8 +28,7 @@
 @*This creates the search bar on the Manage Volunteers page*@
 @using (Html.BeginForm())
 {
-    <p style=" text-align:center;">
-        @*aligns the search bar to the ccenter of the page*@
+    <p style=" text-align:center;">@*aligns the search bar to the ccenter of the page*@
         Find by name: @Html.TextBox("SearchString") @*Creates the search text box*@
         <input type="submit" value="Search" /> @*creates the search button*@
     </p>
