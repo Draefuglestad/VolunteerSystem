@@ -64,7 +64,7 @@ namespace VolunteerSystem.Controllers
         {
             return View(userManager.Users);
         }
-        [AllowAnonymous]
+        
         public ViewResult Create()
         {
             return View();
