@@ -14,18 +14,17 @@ namespace VolunteerSystem.Controllers
         {
             repository = repo;
         }
-        //public ViewResult Index() => View(repository.Volunteers);
+          
         
         //this ViewResult method links the search bar to the data base so that it searches through the database
         public ViewResult Index(string searchString)
         {
-            //ViewBag.NameSortParm = String.IsNullOrEmpty()
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
             {
-                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.Contains(searchString) || Volunteers.LastName.Contains(searchString));
+                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.Contains(searchString) || Volunteers.FirstName.ToUpper().Contains(searchString) || Volunteers.FirstName.ToLower().Contains(searchString) || Volunteers.LastName.Contains(searchString) || Volunteers.LastName.ToLower().Contains(searchString) || Volunteers.LastName.ToUpper().Contains(searchString)); //handles user input exceptions
             }
-            return View(Volunteers.ToList());
+            return View(Volunteers.ToList()); //returns the view with a list of volunteers
         }
 
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
