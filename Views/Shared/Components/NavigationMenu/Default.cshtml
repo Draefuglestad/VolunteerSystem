@@ -17,14 +17,30 @@
            asp-controller="Admin">
             Approved/Pending Approval
         </a>
-        @foreach (string approvalStatus in Model)
-        {
-            <a class="dropdown-item"
-               asp-action="Index"
-               asp-route-approvalStatus="@approvalStatus"
-               asp-controller="Admin">
-                @approvalStatus
-            </a>
-        }
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-approvalStatus="Approved"
+           asp-controller="Admin">
+            Approved
+        </a>
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-approvalStatus="Pending Approval"
+           asp-controller="Admin">
+            Pending Approval
+        </a>
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-approvalStatus="Disapproved"
+           asp-controller="Admin">
+            Disapproved
+        </a>
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-approvalStatus="Inactive"
+           asp-controller="Admin">
+            Inactive
+        </a>
+ 
     </div>
 </div>
