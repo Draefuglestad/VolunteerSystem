@@ -1,0 +1,30 @@
+﻿@model IEnumerable<string>
+
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Filter
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMeuButton">
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-controller="Admin">
+            All
+        </a>
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-secondApprovalStatus="Approved"
+           asp-controller="Admin">
+            Approved/Pending Approval
+        </a>
+        @foreach (string approvalStatus in Model)
+        {
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-approvalStatus="@approvalStatus"
+               asp-controller="Admin">
+                @approvalStatus
+            </a>
+        }
+    </div>
+</div>

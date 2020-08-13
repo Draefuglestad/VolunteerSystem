@@ -14,19 +14,33 @@ namespace VolunteerSystem.Controllers
         {
             repository = repo;
         }
-          
-        
+
+
         //this ViewResult method links the search bar to the data base so that it searches through the database
-        public ViewResult Index(string searchString)
+        public ViewResult Index(string searchString, string approvalStatus, string secondApprovalStatus, int page = 1)
         {
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
             {
-                //handles user input exceptions
-                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.ToLower().Contains(searchString.ToLower()) || Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
+                Volunteers = Volunteers.Where(Volunteers =>
+                Volunteers.FirstName.ToLower().Contains(searchString.ToLower()) ||
+                Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
+                return View(Volunteers.ToList());
             }
-            return View(Volunteers.ToList()); //returns the view with a list of volunteers
+            else if (!string.IsNullOrEmpty(secondApprovalStatus))
+            {
+                Volunteers = repository.Volunteers.Where(
+                    p => secondApprovalStatus == null || p.ApprovalStatus == "Approved" || p.ApprovalStatus == "Pending Approval" || p.ApprovalStatus == "approved" || p.ApprovalStatus == "pending approval" || p.ApprovalStatus == "approved")
+                    .OrderBy(p => p.VolunteerID);
+            } else
+            {
+                Volunteers = repository.Volunteers.Where(
+                    p => approvalStatus == null || p.ApprovalStatus == approvalStatus)
+                    .OrderBy(p => p.VolunteerID);
+            }
+            return View(Volunteers.ToList());
         }
+
 
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
                 .FirstOrDefault(p => p.VolunteerID == volunteerID));
