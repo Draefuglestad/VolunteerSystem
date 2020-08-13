@@ -17,6 +17,8 @@ namespace VolunteerSystem.Controllers
                     View(repository.Opportunities
                     .FirstOrDefault(p => p.OpportunityID == opportunityID));
 
+
+
         [HttpPost]
         public IActionResult Edit(Opportunity opportunity)
         {

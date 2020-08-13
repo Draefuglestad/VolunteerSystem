@@ -31,6 +31,9 @@ namespace VolunteerSystem.Controllers
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
                 .FirstOrDefault(p => p.VolunteerID == volunteerID));
 
+        public ViewResult OppMatch(int volunteerID) => View(repository.Volunteers
+                 .FirstOrDefault(p => p.VolunteerID == volunteerID));
+
         [HttpPost]
         public IActionResult Edit(Volunteer volunteer)
         {
@@ -52,6 +55,12 @@ namespace VolunteerSystem.Controllers
         {
             return View();
         }
+
+        //the ViewResult method links the Opportunity Match View page to the Opportunity Match button
+        //public ViewResult OppMatch()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public IActionResult Delete(int volunteerId)

@@ -1,0 +1,37 @@
+﻿
+@model Volunteer
+@{
+    ViewBag.Title = "Volunteer Opportunity Match";
+    Layout = "_AdminLayout";
+}
+
+    <table class="table table-bordered">
+        <thead>
+            @*labels table column headers*@
+            <tr>
+                <th class="text-center">Name</th>
+                <th class="text-center">Phone Number</th>
+                <th class="text-center">E-mail</th>
+            </tr>
+
+            <tr>
+                <td class="text-center">@Model.FirstName @Model.LastName</td>
+                <td class="text-center">@Model.PhoneNumber</td>
+                <td class="text-center">@Model.Email</td>
+            </tr>
+        </thead>
+
+
+    </table>
+
+    <br/>
+    <br/>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th class="text-center">Action Center</th>
+                <th class="text-center">Job Title</th>
+                <th class="text-center">Job Description</th>
+            </tr>
+        </thead>
+    </table>
