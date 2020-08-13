@@ -17,7 +17,7 @@ namespace VolunteerSystem.Controllers
 
 
         //this ViewResult method links the search bar to the data base so that it searches through the database
-        public ViewResult Index(string searchString, string approvalStatus, int page = 1)
+        public ViewResult Index(string searchString, string approvalStatus, string secondApprovalStatus, int page = 1)
         {
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
@@ -27,7 +27,12 @@ namespace VolunteerSystem.Controllers
                 Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
                 return View(Volunteers.ToList());
             }
-            else
+            else if (!string.IsNullOrEmpty(secondApprovalStatus))
+            {
+                Volunteers = repository.Volunteers.Where(
+                    p => secondApprovalStatus == null || p.ApprovalStatus == "Approved" || p.ApprovalStatus == "Pending Approval")
+                    .OrderBy(p => p.VolunteerID);
+            } else
             {
                 Volunteers = repository.Volunteers.Where(
                     p => approvalStatus == null || p.ApprovalStatus == approvalStatus)

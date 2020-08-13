@@ -11,6 +11,12 @@
            asp-controller="Admin">
             All
         </a>
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-route-secondApprovalStatus="Approved"
+           asp-controller="Admin">
+            Approved/Pending Approval
+        </a>
         @foreach (string approvalStatus in Model)
         {
             <a class="dropdown-item"
