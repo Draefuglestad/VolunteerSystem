@@ -6,6 +6,11 @@
         Filter
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMeuButton">
+        <a class="dropdown-item"
+           asp-action="Index"
+           asp-controller="Admin">
+            All
+        </a>
         @foreach (string approvalStatus in Model)
         {
             <a class="dropdown-item"
