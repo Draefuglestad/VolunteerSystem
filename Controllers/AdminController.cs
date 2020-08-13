@@ -30,7 +30,7 @@ namespace VolunteerSystem.Controllers
             else if (!string.IsNullOrEmpty(secondApprovalStatus))
             {
                 Volunteers = repository.Volunteers.Where(
-                    p => secondApprovalStatus == null || p.ApprovalStatus == "Approved" || p.ApprovalStatus == "Pending Approval")
+                    p => secondApprovalStatus == null || p.ApprovalStatus == "Approved" || p.ApprovalStatus == "Pending Approval" || p.ApprovalStatus == "approved" || p.ApprovalStatus == "pending approval" || p.ApprovalStatus == "approved")
                     .OrderBy(p => p.VolunteerID);
             } else
             {
