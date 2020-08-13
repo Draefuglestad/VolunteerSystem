@@ -14,19 +14,28 @@ namespace VolunteerSystem.Controllers
         {
             repository = repo;
         }
-          
-        
+
+
         //this ViewResult method links the search bar to the data base so that it searches through the database
-        public ViewResult Index(string searchString)
+        public ViewResult Index(string searchString, string approvalStatus, int page = 1)
         {
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
             {
-                //handles user input exceptions
-                Volunteers = Volunteers.Where(Volunteers => Volunteers.FirstName.ToLower().Contains(searchString.ToLower()) || Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
+                Volunteers = Volunteers.Where(Volunteers =>
+                Volunteers.FirstName.ToLower().Contains(searchString.ToLower()) ||
+                Volunteers.LastName.ToLower().Contains(searchString.ToLower()));
+                return View(Volunteers.ToList());
             }
-            return View(Volunteers.ToList()); //returns the view with a list of volunteers
+            else
+            {
+                Volunteers = repository.Volunteers.Where(
+                    p => approvalStatus == null || p.ApprovalStatus == approvalStatus)
+                    .OrderBy(p => p.VolunteerID);
+            }
+            return View(Volunteers.ToList());
         }
+
 
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
                 .FirstOrDefault(p => p.VolunteerID == volunteerID));
