@@ -8,7 +8,7 @@
 
 @await Component.InvokeAsync("NavigationMenu")
 <br/> 
-<div class="dropdown">
+<!--<div class="dropdown">
     <button class="btn btn-outline-secondary dropdown-toggle"
             type="button" id="dropdownMenu1" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -22,7 +22,7 @@
         <a class="dropdown-item" href="#!">Disapproved</a>
         <a class="dropdown-item" href="#!">Inactive</a>
     </div>
-</div>
+</div>-->
 <br/>
 <br/>
 
@@ -34,7 +34,7 @@
     {
         <div>
             Find by name: @Html.TextBox("SearchString") @*Creates the search text box*@
-            <input type="submit" class="btn btn-info" value="Search" /> @*creates the search button*@
+            <input type="submit" class="btn btn-info btn-sm" value="Search" /> @*creates the search button*@
 
         </div>
     }@*end search bar code*@
