@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using VolunteerSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using VolunteerSystem.Models.ViewModels;
 
 namespace VolunteerSystem.Controllers
 {
@@ -11,13 +12,22 @@ namespace VolunteerSystem.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index() => View(repository.Opportunities);
+       
 
         public ViewResult Edit(int opportunityID) =>
                     View(repository.Opportunities
                     .FirstOrDefault(p => p.OpportunityID == opportunityID));
 
-
+        //method that searches opportunities (search bar function Views/AdminOpp/Index)
+        public ViewResult Index(string searchOpp)
+        {
+            var Opportunities = from o in repository.Opportunities select o;
+            if (!string.IsNullOrEmpty(searchOpp))
+            {
+                Opportunities = Opportunities.Where(o => o.Keyword.Contains(searchOpp));
+            }
+            return View(Opportunities.ToList());
+        }
 
         [HttpPost]
         public IActionResult Edit(Opportunity opportunity)

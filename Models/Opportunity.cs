@@ -18,6 +18,7 @@ namespace VolunteerSystem.Models
         public string Description { get; set; }
         [Required(ErrorMessage = "Please enter a job title")]
         public string JobTitle { get; set; }
-       
+       [Required(ErrorMessage ="Please enter a keyword for this job")]
+       public string Keyword { get; set; }
     }
 }

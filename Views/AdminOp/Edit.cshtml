@@ -22,6 +22,11 @@
             <input asp-for="VolunteerCenter" class="form-control" />
         </div>
         <div class="form-group row-cols-sm-2">
+            <label asp-for="Keyword">Volunteer Center</label>
+            <div><span asp-validation-for="Keyword" class="text-danger"></span></div>
+            <input asp-for="Keyword" class="form-control" />
+        </div>
+        <div class="form-group row-cols-sm-2">
             <button class="btn btn-info" type="submit">Save</button>
             <a asp-action="Index" class="btn btn-danger">Cancel</a>
         </div>

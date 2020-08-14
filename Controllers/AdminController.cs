@@ -2,6 +2,7 @@
 using VolunteerSystem.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using VolunteerSystem.Models.ViewModels;
 
 namespace VolunteerSystem.Controllers
 {
@@ -17,7 +18,7 @@ namespace VolunteerSystem.Controllers
 
 
         //this ViewResult method links the search bar to the data base so that it searches through the database
-        public ViewResult Index(string searchString, string approvalStatus, string secondApprovalStatus, int page = 1)
+        public ViewResult Index(string searchString, string searchOpp, string approvalStatus, string secondApprovalStatus, int page = 1)
         {
             var Volunteers = from v in repository.Volunteers select v;
             if (!string.IsNullOrEmpty(searchString))
@@ -32,7 +33,9 @@ namespace VolunteerSystem.Controllers
                 Volunteers = repository.Volunteers.Where(
                     p => secondApprovalStatus == null || p.ApprovalStatus == "Approved" || p.ApprovalStatus == "Pending Approval" || p.ApprovalStatus == "approved" || p.ApprovalStatus == "pending approval" || p.ApprovalStatus == "approved")
                     .OrderBy(p => p.VolunteerID);
-            } else
+            }
+            
+            else
             {
                 Volunteers = repository.Volunteers.Where(
                     p => approvalStatus == null || p.ApprovalStatus == approvalStatus)
@@ -41,6 +44,7 @@ namespace VolunteerSystem.Controllers
             return View(Volunteers.ToList());
         }
 
+        
 
         public ViewResult Edit(int volunteerID) => View(repository.Volunteers
                 .FirstOrDefault(p => p.VolunteerID == volunteerID));

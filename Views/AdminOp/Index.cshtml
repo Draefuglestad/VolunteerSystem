@@ -24,17 +24,30 @@
 </div>
 <br />
 
+<center>
+    @*This creates the search bar on the Manage Volunteers page*@
+    @using (Html.BeginForm())
+    {
+        <div>
+            Find by job keyword: @Html.TextBox("searchOpp") @*Creates the search text box*@
+            <input type="submit" class="btn btn-info btn-sm" value="Search" /> @*creates the search button*@
+
+        </div>
+    }@*end search bar code*@
+
+</center>
+<br />
 
 <!--Table-->
 <table class="table table-bordered">
     <thead>
-    <tr>
-        <th class="text-center">Job Title</th>
-        <th class="text-center">Description</th>
-        <th class="text-center">Volunteer Center</th>
-        <th class="text-center">Actions</th>
-    </tr>
-        </thead>
+        <tr>
+            <th class="text-center">Job Title</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Volunteer Center</th>
+            <th class="text-center">Actions</th>
+        </tr>
+    </thead>
     @foreach (var item in Model)
     {
         <tr>
