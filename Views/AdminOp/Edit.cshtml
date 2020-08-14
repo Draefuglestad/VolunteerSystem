@@ -3,25 +3,28 @@
     ViewBag.Title = "Edit Volunteer Records";
     Layout = "_AdminLayout";
 }
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="OpportunityID" />
-    <div class="form-group">
-        <label asp-for="JobTitle">Job Title</label>
-        <div><span asp-validation-for="JobTitle" class="text-danger"></span></div>
-        <input asp-for="JobTitle" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Description">Job Description</label>
-        <div><span asp-validation-for="Description" class="text-danger"></span></div>
+<center>
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="OpportunityID" />
+        <div class="form-group row-cols-sm-2">
+            <label asp-for="JobTitle">Job Title</label>
+            <div><span asp-validation-for="JobTitle" class="text-danger"></span></div>
+            <input asp-for="JobTitle" class="form-control" />
+        </div>
+        <div class="form-group row-cols-sm-2">
+            <label asp-for="Description">Job Description</label>
+            <div><span asp-validation-for="Description" class="text-danger"></span></div>
 <textarea asp-for="Description" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label asp-for="VolunteerCenter">Volunteer Center</label>
-        <div><span asp-validation-for="VolunteerCenter" class="text-danger"></span></div>
-        <input asp-for="VolunteerCenter" class="form-control" />
-    </div>
-    <div class="text-center">
-        <button class="btn btn-primary" type="submit">Save</button>
-        <a asp-action="Index" class="btn btn-default">Cancel</a>
-    </div>
-</form>
+        </div>
+        <div class="form-group row-cols-sm-2">
+            <label asp-for="VolunteerCenter">Volunteer Center</label>
+            <div><span asp-validation-for="VolunteerCenter" class="text-danger"></span></div>
+            <input asp-for="VolunteerCenter" class="form-control" />
+        </div>
+        <div class="form-group row-cols-sm-2">
+            <button class="btn btn-info" type="submit">Save</button>
+            <a asp-action="Index" class="btn btn-danger">Cancel</a>
+        </div>
+
+    </form>
+</center>
