@@ -19,12 +19,16 @@ namespace VolunteerSystem.Controllers
                     .FirstOrDefault(p => p.OpportunityID == opportunityID));
 
         //method that searches opportunities (search bar function Views/AdminOpp/Index)
-        public ViewResult Index(string searchOpp)
+        public ViewResult Index(string searchOpp, string centerFilter)
         {
             var Opportunities = from o in repository.Opportunities select o;
             if (!string.IsNullOrEmpty(searchOpp))
             {
                 Opportunities = Opportunities.Where(o => o.Keyword.Contains(searchOpp));
+            } else
+            {
+                Opportunities = repository.Opportunities.Where(
+                    p => p.VolunteerCenter == null || p.VolunteerCenter == centerFilter);
             }
             return View(Opportunities.ToList());
         }
