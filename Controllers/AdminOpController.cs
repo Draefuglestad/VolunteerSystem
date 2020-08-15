@@ -25,7 +25,7 @@ namespace VolunteerSystem.Controllers
             if (!string.IsNullOrEmpty(searchOpp))
             {
                 Opportunities = Opportunities.Where(o => o.Keyword.Contains(searchOpp));
-            } else
+            } else if (!string.IsNullOrEmpty(centerFilter))
             {
                 Opportunities = repository.Opportunities.Where(
                     p => p.VolunteerCenter == null || p.VolunteerCenter == centerFilter);
