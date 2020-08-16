@@ -29,7 +29,7 @@ namespace VolunteerSystem.Controllers
             } else if (!string.IsNullOrEmpty(centerFilter))
             {
                 Opportunities = repository.Opportunities.Where(
-                    p => p.VolunteerCenter == null || p.VolunteerCenter == centerFilter);
+                    Opportunities => Opportunities.VolunteerCenter == null || Opportunities.VolunteerCenter == centerFilter);
             } else if (!string.IsNullOrEmpty(dateFilter))
             {
                 DateTime currentDate = DateTime.Now.Date.AddDays(-60);

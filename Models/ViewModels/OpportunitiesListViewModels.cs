@@ -10,5 +10,7 @@ namespace VolunteerSystem.Models.ViewModels
     {
         public IEnumerable<Opportunity> Opportunities { get; set; }
         public PagingInfo PagingInfo { get; set; }
+
+        public string centerFilter { get; set; }
     }
 }

@@ -6,8 +6,50 @@
 
 
 <!--Drop-down Filtering Menu-->
-@await Component.InvokeAsync("NavigationMenu")
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMeuButton">
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-controller="Admin">
+                All
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-secondApprovalStatus="Approved"
+               asp-controller="Admin">
+                Approved/Pending Approval
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-approvalStatus="Approved"
+               asp-controller="Admin">
+                Approved
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-approvalStatus="Pending Approval"
+               asp-controller="Admin">
+                Pending Approval
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-approvalStatus="Disapproved"
+               asp-controller="Admin">
+                Disapproved
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-approvalStatus="Inactive"
+               asp-controller="Admin">
+                Inactive
+            </a>
 
+        </div>
+    </div>
 
 
 

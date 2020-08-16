@@ -1,46 +1,31 @@
 ﻿@model IEnumerable<string>
 
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Filter
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMeuButton">
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-controller="Admin">
-            All
-        </a>
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-route-secondApprovalStatus="Approved"
-           asp-controller="Admin">
-            Approved/Pending Approval
-        </a>
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-route-approvalStatus="Approved"
-           asp-controller="Admin">
-            Approved
-        </a>
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-route-approvalStatus="Pending Approval"
-           asp-controller="Admin">
-            Pending Approval
-        </a>
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-route-approvalStatus="Disapproved"
-           asp-controller="Admin">
-            Disapproved
-        </a>
-        <a class="dropdown-item"
-           asp-action="Index"
-           asp-route-approvalStatus="Inactive"
-           asp-controller="Admin">
-            Inactive
-        </a>
- 
+    <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle"
+                type="button" id="dropdownMenu1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+            Filter
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-controller="AdminOp">
+                All
+            </a>
+            <a class="dropdown-item"
+               asp-action="Index"
+               asp-route-dateFilter="Last60Days"
+               asp-controller="AdminOp">
+                Last 60 days
+            </a>
+            @foreach (string VolunteerCenter in Model)
+            {
+                <a class="dropdown-item"
+                   asp-action="Index"
+                   asp-route-centerFilter="@VolunteerCenter"
+                   asp-controller="AdminOp">
+                    @VolunteerCenter
+                </a>
+            }
+        </div>
     </div>
-</div>
