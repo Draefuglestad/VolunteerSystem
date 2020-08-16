@@ -32,9 +32,10 @@ namespace VolunteerSystem.Controllers
                     Opportunities => Opportunities.VolunteerCenter == null || Opportunities.VolunteerCenter == centerFilter);
             } else if (!string.IsNullOrEmpty(dateFilter))
             {
-                DateTime currentDate = DateTime.Now.Date.AddDays(-60);
-                Opportunities = repository.Opportunities.Where(p => p.volunteerDate >= currentDate
-                || p.volunteerDate == currentDate);
+                DateTime lastDays = DateTime.Now.Date.AddDays(-60);
+                DateTime currentDate = DateTime.Now;
+                Opportunities = repository.Opportunities.Where(p => p.volunteerDate >= lastDays
+                && p.volunteerDate <= currentDate);
             }
             return View(Opportunities.ToList());
         }
