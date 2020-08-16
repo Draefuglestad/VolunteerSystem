@@ -9,18 +9,18 @@ namespace VolunteerSystem.Component
 {
     public class NavigationMenuViewComponent : ViewComponent
     {
-        private IVolunteerRepository repository;
+        private IOpportunityRepository repository;
 
-        public NavigationMenuViewComponent(IVolunteerRepository repo)
+        public NavigationMenuViewComponent(IOpportunityRepository repo)
         {
             repository = repo;
         }
 
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedCategory = RouteData?.Values["approvalStatus"];
-            return View(repository.Volunteers
-                .Select(x => x.ApprovalStatus)
+            ViewBag.SelectedCategory = RouteData?.Values["centerFilter"];
+            return View(repository.Opportunities
+                .Select(x => x.VolunteerCenter)
                 .Distinct()
                 .OrderBy(x => x));
         }
