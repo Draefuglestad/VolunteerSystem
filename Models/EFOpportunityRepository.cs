@@ -28,7 +28,8 @@ namespace VolunteerSystem.Models
                     dbEntry.JobTitle = opportunity.JobTitle;
                     dbEntry.Description = opportunity.Description;
                     dbEntry.VolunteerCenter = opportunity.VolunteerCenter;
-                    
+                    //connects the database to the Edit button so that it saves the edited user input
+                    dbEntry.Keyword = opportunity.Keyword;
                 }
             }
             context.SaveChanges();
