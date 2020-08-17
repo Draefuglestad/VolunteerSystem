@@ -20,7 +20,7 @@ namespace VolunteerSystem.Controllers
                     .FirstOrDefault(p => p.OpportunityID == opportunityID));
 
         
-        public ViewResult Index(string searchOpp, string centerFilter, string dateFilter)
+        public ViewResult Index(string searchOpp, string centerFilter)
         {
             var Opportunities = from o in repository.Opportunities select o;
             if (!string.IsNullOrEmpty(searchOpp))
@@ -31,12 +31,13 @@ namespace VolunteerSystem.Controllers
             {
                 Opportunities = repository.Opportunities.Where(
                     Opportunities => Opportunities.VolunteerCenter == null || Opportunities.VolunteerCenter == centerFilter);
-            } else if (!string.IsNullOrEmpty(dateFilter))
-            {
+            }
+            //else if (!string.IsNullOrEmpty(dateFilter))
+            //{
                 //DateTime currentDate = DateTime.Now.Date.AddDays(-60);
                 //Opportunities = repository.Opportunities.Where(p => p.volunteerDate >= currentDate
                 //|| p.volunteerDate == currentDate);
-            }
+            //}
             return View(Opportunities.ToList());
         }
 
