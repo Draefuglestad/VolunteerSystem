@@ -3,6 +3,7 @@ using VolunteerSystem.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using VolunteerSystem.Models.ViewModels;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace VolunteerSystem.Controllers
 {
@@ -52,6 +53,8 @@ namespace VolunteerSystem.Controllers
         public ViewResult OppMatch(int volunteerID) => View(repository.Volunteers
                  .FirstOrDefault(p => p.VolunteerID == volunteerID));
 
+        
+
         [HttpPost]
         public IActionResult Edit(Volunteer volunteer)
         {
@@ -90,7 +93,6 @@ namespace VolunteerSystem.Controllers
             }
             return RedirectToAction("Index");
         }
-
     }
 
 }

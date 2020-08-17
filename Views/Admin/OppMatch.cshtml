@@ -1,9 +1,11 @@
 ﻿
 @model Volunteer
-@{
+@{ 
     ViewBag.Title = "Volunteer Opportunity Match";
     Layout = "_AdminLayout";
+
 }
+   
 
     <table class="table table-bordered">
         <thead>
@@ -21,7 +23,7 @@
             </tr>
         </thead>
 
-
+        
     </table>
 
     <br/>
@@ -33,5 +35,14 @@
                 <th class="text-center">Job Title</th>
                 <th class="text-center">Job Description</th>
             </tr>
+
+            @*@foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Opportunity.VolunteerCenter</td>
+                    <td>@item.Opportunity.JobTitle</td>
+                    <td>@item.Opportunity.Description</td>
+                </tr>
+            }*@
         </thead>
     </table>

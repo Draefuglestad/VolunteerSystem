@@ -4,7 +4,7 @@
     Layout = "_AdminLayout";
 }
 
-<!--Drop-Down filtering List. Filters by all, last 60 days, and by each Center listed in the database-->
+<!--Bailey is going to edit this dropdrown list!-->
 
 @await Component.InvokeAsync("NavigationMenu")
 <br />
@@ -38,7 +38,8 @@
         <tr>
             <td class="text-center">@item.JobTitle</td>
             <td class="text-center">@item.Description</td>
-            <td class="text-center">@item.VolunteerCenter</td> 
+            <td class="text-center">@item.VolunteerCenter</td>
+            <td class="text-center">@item.VolunteerDate</td>
             <td class="text-center">
                 <form asp-action="Delete" method="post">
                     <a asp-action="Edit" class="btn btn-sm btn-outline-secondary"

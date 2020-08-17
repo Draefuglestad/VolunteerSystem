@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace VolunteerSystem.Models
 {
+
+
     public class Volunteer
     {
         public int VolunteerID { get; set; }
@@ -73,8 +75,6 @@ namespace VolunteerSystem.Models
         public string Licenses { get; set; }
         [Required(ErrorMessage = "Please enter volunteer's approval status")]
         public string ApprovalStatus { get; set; }
-
-
-
     }
-}
+
+ }

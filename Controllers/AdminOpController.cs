@@ -19,24 +19,24 @@ namespace VolunteerSystem.Controllers
                     View(repository.Opportunities
                     .FirstOrDefault(p => p.OpportunityID == opportunityID));
 
-        //method that searches opportunities (search bar function Views/AdminOpp/Index)
-        public ViewResult Index(string searchOpp, string centerFilter)
+        
+        public ViewResult Index(string searchOpp, string centerFilter, string dateFilter)
         {
             var Opportunities = from o in repository.Opportunities select o;
             if (!string.IsNullOrEmpty(searchOpp))
             {
+                //method that searches opportunities (search bar function Views/AdminOpp/Index)
                 Opportunities = Opportunities.Where(o => o.Keyword.Contains(searchOpp));
             } else if (!string.IsNullOrEmpty(centerFilter))
             {
                 Opportunities = repository.Opportunities.Where(
                     Opportunities => Opportunities.VolunteerCenter == null || Opportunities.VolunteerCenter == centerFilter);
-            } //else if (!string.IsNullOrEmpty(dateFilter))
-           // //{
-             //   DateTime lastDays = DateTime.Now.Date.AddDays(-60);
-             //   DateTime currentDate = DateTime.Now;
-             //   Opportunities = repository.Opportunities.Where(p => p.OppDate >= lastDays
-             //   && p.OppDate <= currentDate);
-           // }
+            } else if (!string.IsNullOrEmpty(dateFilter))
+            {
+                //DateTime currentDate = DateTime.Now.Date.AddDays(-60);
+                //Opportunities = repository.Opportunities.Where(p => p.volunteerDate >= currentDate
+                //|| p.volunteerDate == currentDate);
+            }
             return View(Opportunities.ToList());
         }
 

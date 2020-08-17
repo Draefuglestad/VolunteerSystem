@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace VolunteerSystem.Models
 {
+    
+
     public class Opportunity
     {
         public int OpportunityID { get; set; }
@@ -21,6 +23,6 @@ namespace VolunteerSystem.Models
        [Required(ErrorMessage ="Please enter a keyword for this job")]
         public string Keyword { get; set; }
 
-       // public DateTime OppDate { get; set; }
+        public DateTime VolunteerDate { get; set; }
     }
 }
