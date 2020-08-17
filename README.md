@@ -7,6 +7,10 @@ opportunities. No one other than a person with an admin login has access to the 
 Features that are not working quite right:
 
 - Filter by DateTime. 
+-- We struggled using the datatype date/datetime for the first time. I (Bailey) implented the filter by date
+   and was eventually able to get it to work. However, for some reason the database would not update on other
+   team members system. Every person had to add the new datatype themselved otherwise the program would break
+   whenever they tried to run it and select the Manage Opportunities button. 
 
 Things our team learned and would do differently next time:
 
