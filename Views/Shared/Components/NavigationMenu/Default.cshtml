@@ -12,12 +12,19 @@
                asp-controller="AdminOp">
                 All
             </a>
+            <!--We attempted to filter by last 60 days. However we ran into an issue
+                For some reason the database would not update for everybody. This caused
+                the program to break. We're able to get it to work, but only after each of
+                us writes in the new data type ourself.-->
+            @*
             <a class="dropdown-item"
-               asp-action="Index"
-               asp-route-dateFilter="Last60Days"
-               asp-controller="AdminOp">
-                Last 60 days
-            </a>
+           asp-action="Index"
+           asp-route-dateFilter="Last60Days"
+           asp-controller="AdminOp">
+            Last 60 days
+        </a>
+            *@
+           
             @foreach (string VolunteerCenter in Model)
             {
                 <a class="dropdown-item"
