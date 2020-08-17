@@ -21,6 +21,6 @@ namespace VolunteerSystem.Models
        [Required(ErrorMessage ="Please enter a keyword for this job")]
         public string Keyword { get; set; }
 
-        public DateTime volunteerDate { get; set; }
+       public DateTime OppDate { get; set; }
     }
 }

@@ -34,8 +34,8 @@ namespace VolunteerSystem.Controllers
             {
                 DateTime lastDays = DateTime.Now.Date.AddDays(-60);
                 DateTime currentDate = DateTime.Now;
-                Opportunities = repository.Opportunities.Where(p => p.volunteerDate >= lastDays
-                && p.volunteerDate <= currentDate);
+                Opportunities = repository.Opportunities.Where(p => p.OppDate >= lastDays
+                && p.OppDate <= currentDate);
             }
             return View(Opportunities.ToList());
         }
