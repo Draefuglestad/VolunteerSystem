@@ -5,12 +5,15 @@ This is a pre-semester project for the Senior Project 1 course. The purpose of t
 be able to add, edit, or delete volunteers or volunteer opportunities. No one other than a person with an admin 
 login has access to the information or to make changes.
 
+For this project we did not have access to a shared database. Therefore, we each had to migrate and update
+our local databases in SQL Server Object Explorer.
+
 Features that are not working quite right:
 
 - Filter by DateTime. 
--- We struggled using the datatype date/datetime for the first time. I (Bailey) implented the filter by date
+   We struggled using the datatype date/datetime for the first time. I (Bailey) implemented the filter by date
    and was eventually able to get it to work. However, for some reason the database would not update on other
-   team members system. Every person had to add the new datatype themselved otherwise the program would break
+   team members system. Every person had to add the new datatype themselves otherwise the program would break
    whenever they tried to run it and select the Manage Opportunities button. 
 
 - Opportunity Matching.
